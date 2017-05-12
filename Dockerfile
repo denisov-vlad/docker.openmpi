@@ -9,7 +9,7 @@ MAINTAINER Ole Weidner <ole.weidner@ed.ac.uk>
 ENV USER mpirun
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    HOME=/home/${USER} 
+    HOME=/home/${USER}
 
 
 RUN apt-get update -y && \
@@ -74,9 +74,6 @@ RUN mkdir -p ${HOME}/.openmpi \
 # ------------------------------------------------------------
 
 ENV TRIGGER 1
-
-ADD mpi4py_benchmarks ${HOME}/mpi4py_benchmarks
-RUN chown ${USER}:${USER} ${HOME}/mpi4py_benchmarks
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

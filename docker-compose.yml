@@ -1,14 +1,18 @@
 mpi_head:
     build: .
-    # image: openmpi
-    ports: 
+    #image: openmpi
+    ports:
       - "22"
-    links: 
+    links:
       - mpi_node
+    volumes:
+      - '.:/home/mpirun/mpi4py_benchmarks'
 
 mpi_node:
     build: .
-    # image: openmpi
+    volumes:
+      - '.:/home/mpirun/mpi4py_benchmarks'
+    #image: openmpi
 
 
 # version: "2"
@@ -17,9 +21,9 @@ mpi_node:
 #   mpi_head:
 #     build: .
 #     # image: openmpi
-#     ports: 
+#     ports:
 #       - "22"
-#     links: 
+#     links:
 #       - mpi_node
 #     networks:
 #       - net
